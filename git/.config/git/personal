@@ -1,0 +1,11 @@
+[commit]
+    gpgsign = true
+
+[gpg]
+    format = openpgp
+    program = gpg
+
+[user]
+    email = git@syrup.email
+    name = Cameron Bell
+    signingkey = 58C066B838BC2A8F

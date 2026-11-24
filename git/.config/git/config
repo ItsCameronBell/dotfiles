@@ -1,0 +1,172 @@
+# Requires git >=2.46
+
+[alias]
+
+    # Status
+    st = status --short --branch
+    stl = status
+
+    # Branches
+    br = branch
+    bra = branch --all
+    brv = branch --verbose --verbose
+    brc = branch --show-current
+    brm = branch --merged
+    brn = branch --no-merged
+    sw = switch
+    swc = switch --create
+
+    # Staging
+    aa = add --all
+    ap = add --patch
+    ai = add --interactive
+    au = add --update
+    unstage = restore --staged
+
+    # Commits
+    ci = commit
+    cm = commit --message
+    ca = commit --amend
+    can = commit --amend --no-edit
+    cf = commit --fixup
+    cs = commit --squash
+    uncommit = reset --soft HEAD~1
+
+    # Diffs
+    df = diff
+    ds = diff --staged
+    dh = diff HEAD
+    dw = diff --color-words
+    dst = diff --stat
+    dn = diff --name-only
+    dc = diff --check
+    dpr = diff origin/HEAD...HEAD
+    dprs = diff --stat origin/HEAD...HEAD
+    dprn = diff --name-only origin/HEAD...HEAD
+    dss = diff --staged --stat
+    dsn = diff --staged --name-only
+    dsw = diff --staged --color-words
+    dsc = diff --staged --check
+
+    # History
+    l = log --oneline --decorate
+    lg = log --graph --oneline --decorate
+    lga = log --graph --oneline --decorate --all
+    lr = log --max-count=10 --oneline
+    lf = log --follow
+    lp = log --patch
+    ls = log --stat
+    last = show HEAD
+    rl = reflog
+
+    # Remotes
+    fa = fetch --all --prune
+    pl = pull
+    plf = pull --ff-only
+    plm = pull --no-rebase
+    pf = push --force-with-lease --force-if-includes
+    pu = push --set-upstream origin HEAD
+    rh = remote set-head origin --auto
+    rv = remote --verbose
+
+    # Stashing
+    sa = stash push --include-untracked
+    sl = stash list
+    sp = stash pop
+    sd = stash drop
+    ss = stash show --patch
+    sap = stash apply
+    spp = stash push --patch
+
+    # Rebase
+    rb = rebase
+    rbd = rebase origin/HEAD
+    rbi = rebase --interactive
+    rbc = rebase --continue
+    rba = rebase --abort
+    rbs = rebase --skip
+
+    # Worktrees
+    wt = worktree
+    wtl = worktree list
+
+    # Utilities
+    root = rev-parse --show-toplevel
+    contributors = shortlog --summary --numbered --email HEAD
+    aliases = config --get-regexp ^alias[.]
+    configl = config --list --show-origin
+    untracked = ls-files --others --exclude-standard
+    ignored = status --short --ignored
+    whyignored = check-ignore --verbose
+
+[branch]
+    sort = -committerdate
+
+[color]
+    ui = auto
+
+[color "diff"]
+    frag = magenta
+    meta = cyan
+    new = green
+    old = red
+
+[column]
+    ui = auto
+
+[commit]
+    verbose = true
+
+[core]
+    editor = code --wait
+    excludesFile = ~/.config/git/ignore
+    logAllRefUpdates = true
+
+[diff]
+    algorithm = histogram
+    colorMoved = zebra
+    colorMovedWS = allow-indentation-change
+    mnemonicPrefix = true
+    renames = true
+
+[fetch]
+    prune = true
+
+[help]
+    autocorrect = prompt
+
+[init]
+    defaultBranch = main
+
+[merge]
+    conflictStyle = zdiff3
+
+[pull]
+    ff = true
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+    default = simple
+
+[rebase]
+    autoSquash = true
+    autoStash = false
+    updateRefs = true
+
+[rerere]
+    autoUpdate = false
+    enabled = true
+
+[status]
+    renames = true
+    showStash = true
+
+[tag]
+    sort = -version:refname
+
+[user]
+    useConfigOnly = true
+
+[includeIf "gitdir:~/Documents/Projects/"]
+    path = ~/.config/git/personal
